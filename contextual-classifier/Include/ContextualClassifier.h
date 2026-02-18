@@ -63,7 +63,7 @@ private:
 
     NetLinkComm mNetLinkComm;
     Inference *mInference;
-    RestuneHandleInfo mRestuneHandles[2];
+    std::vector<int64_t> mCurrRestuneHandles;
 
     // Event queue for classifier main thread
     std::queue<ProcEvent> mPendingEv;
@@ -108,11 +108,14 @@ private:
                                 const std::string& comm,
                                 int32_t cgroupIdentifier);
 
-    void untuneRequestHelper(int32_t index);
+    void untuneRequestHelper(int64_t handle);
 
 public:
     ContextualClassifier();
     ~ContextualClassifier();
+    Inference *getInference() {
+        return mInference;
+    }
 
     ErrCode Init();
     ErrCode Terminate();
