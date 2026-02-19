@@ -1,4 +1,3 @@
-
 // Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
 // SPDX-License-Identifier: BSD-3-Clause-Clear
 
@@ -32,12 +31,11 @@
 #include "ClientDataManager.h"
 #include "UrmSettings.h"
 
-#include "RestuneVisibility.h"
 /**
  * @brief RateLimiter
  * @details Responsible for Tracking Client Behaviour, and Protect against System Abuse.
  */
-class RESTUNE_INTERNAL_EXPORT RateLimiter {
+class RateLimiter {
 private:
     static std::shared_ptr<RateLimiter> mRateLimiterInstance;
     static std::mutex instanceProtectionLock;

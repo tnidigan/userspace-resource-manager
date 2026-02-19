@@ -77,8 +77,8 @@ public:
     }
 };
 
-__attribute__((visibility("default"))) ErrCode startClientGarbageCollectorDaemon();
-__attribute__((visibility("default"))) void stopClientGarbageCollectorDaemon();
+ErrCode startClientGarbageCollectorDaemon();
+void stopClientGarbageCollectorDaemon();
 
 #endif
 

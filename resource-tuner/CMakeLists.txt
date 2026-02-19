@@ -39,7 +39,9 @@ else()
 endif()
 
 add_library(RestuneCore ${SOURCES})
-target_compile_options(RestuneCore PRIVATE -fvisibility=hidden)
+target_link_options(RestuneCore PRIVATE 
+    "-Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/libRestuneCore.map"
+)
 
 set_target_properties(RestuneCore PROPERTIES VERSION 1.0.0 SOVERSION 1)
 target_link_libraries(RestuneCore PUBLIC ${LINK_LIBS})

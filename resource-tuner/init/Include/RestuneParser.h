@@ -306,7 +306,7 @@
  *          Note, this class uses the YamlParser class for actually Reading and
  *          Parsing the YAML data.
  */
-class __attribute__((visibility("default"))) RestuneParser {
+class RestuneParser {
 private:
     ErrCode parseResourceConfigYamlNode(const std::string& filePath);
     ErrCode parsePropertiesConfigYamlNode(const std::string& filePath);

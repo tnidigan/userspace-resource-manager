@@ -77,8 +77,8 @@ public:
     }
 };
 
-__attribute__((visibility("default"))) ErrCode startPulseMonitorDaemon();
-__attribute__((visibility("default"))) void stopPulseMonitorDaemon();
+ErrCode startPulseMonitorDaemon();
+void stopPulseMonitorDaemon();
 
 #endif
 

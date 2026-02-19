@@ -16,8 +16,6 @@
 #include "MemoryPool.h"
 #include "UrmSettings.h"
 
-#include "RestuneVisibility.h"
-
 /**
  * @struct SignalInfo
  * @brief Representation of a single Signal Configuration
@@ -70,7 +68,7 @@ typedef struct {
  * @details Stores information Relating to all the Signals available for Tuning.
  *          Note: This information is extracted from Config YAML files.
  */
-class RESTUNE_INTERNAL_EXPORT SignalRegistry {
+class SignalRegistry {
 private:
     static std::shared_ptr<SignalRegistry> signalRegistryInstance;
 
