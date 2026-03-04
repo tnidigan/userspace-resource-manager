@@ -71,7 +71,8 @@ enum Policy {
     HIGHER_BETTER, //!< This policy first applies the request writing the highest value to the node.
     LOWER_BETTER, //!< Self-explanatory. Works exactly opposite of the higher is better policy.
     LAZY_APPLY, //!< The requests are applied in a first-in-first-out manner.
-    PASS_THROUGH
+    PASS_THROUGH,  //!< Request Ordering is immaterial
+    PASS_THROUGH_APPEND, //!< Request Ordering is immaterial, however multiple values can co-exist
 };
 
 enum TranslationUnit {
@@ -128,6 +129,7 @@ typedef void (*MessageReceivedCallback)(int32_t, MsgForwardInfo*);
 #define COMM_S(pidstr) ("/proc/" + pidstr + "/comm")
 #define STATUS(pid) ("/proc/" + std::to_string(pid) + "/status")
 #define CMDLINE(pid) ("/proc/" + std::to_string(pid) + "/cmdline")
+#define STAT(pid) ("/proc/" + std::to_string(pid) + "/stat")
 
 #define CONCAT_IMPL(a, b) a##b
 #define CONCAT(a, b) CONCAT_IMPL(a, b)

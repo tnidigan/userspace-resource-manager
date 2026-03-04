@@ -7,8 +7,6 @@
 #include <unordered_map>
 
 #include "ErrCodes.h"
-#include "MemoryPool.h"
-#include "SafeOps.h"
 #include "Utils.h"
 
 #define URM_IDENTIFIER "urm"
@@ -79,7 +77,6 @@ public:
     static const std::string mDeviceNamePath;
     static const std::string mBaseCGroupPath;
     static const std::string mPersistenceFile;
-    static const std::string mExtensionPluginsLibPath;
 
     // Target Information Stores
     static MetaConfigs metaConfigs;
