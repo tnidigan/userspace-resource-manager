@@ -61,6 +61,14 @@ if(FLORET_FOUND)
     target_include_directories(ml_inference_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/Include)
     target_include_directories(ml_inference_lib PRIVATE ${FLORET_INCLUDE_DIRS})
 
+    # Apply linker version script for symbol visibility control
+    string(TOUPPER "${CMAKE_BUILD_TYPE}" UPPER_BUILD_TYPE)
+    if(NOT BUILD_TESTS AND NOT UPPER_BUILD_TYPE STREQUAL "DEBUG")
+        target_link_options(ml_inference_lib PRIVATE 
+            "-Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/libml_inference_lib.map"
+        )
+    endif()
+
 else()
     message(STATUS "floret not found via pkg-config or ENABLE_FLORET=OFF — falling back to base Inference only")
 endif()
